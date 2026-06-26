@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Expression Detector</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>😊 Facial Expression Detector</h1>
+            <p>Real-time emotion recognition using TensorFlow.js</p>
+        </header>
+
+        <div class="main-content">
+            <div class="video-section">
+                <div class="video-container">
+                    <video id="video" autoplay playsinline></video>
+                    <canvas id="canvas"></canvas>
+                    <div id="overlay" class="overlay">
+                        <div class="loading-spinner"></div>
+                        <p>Initializing camera...</p>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button id="startBtn" class="btn btn-primary">▶ Start Detection</button>
+                    <button id="stopBtn" class="btn btn-secondary" disabled>⏹ Stop</button>
+                    <button id="captureBtn" class="btn btn-secondary">📸 Capture</button>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <div class="current-emotion">
+                    <h3>Current Emotion</h3>
+                    <div id="emotionDisplay" class="emotion-display">
+                        <span class="emotion-icon">🤔</span>
+                        <span class="emotion-text">Waiting...</span>
+                    </div>
+                    <div id="confidenceDisplay" class="confidence-display">
+                        Confidence: 0%
+                    </div>
+                </div>
+
+                <div class="top-predictions">
+                    <h3>Top Predictions</h3>
+                    <div id="predictionsList" class="predictions-list">
+                        <div class="prediction-item">
+                            <span class="prediction-label">Waiting for input...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="probability-chart">
+                    <h3>Probability Distribution</h3>
+                    <div id="chartContainer" class="chart-container">
+                        <div class="chart-bars">
+                            <!-- Bars will be dynamically generated -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history">
+                    <h3>Detection History</h3>
+                    <ul id="historyList" class="history-list">
+                        <li>No detections yet</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Powered by TensorFlow.js & Flask | Made with ❤️</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
